@@ -1,0 +1,20 @@
+export type CandidateColumns = {
+  id: boolean;
+  name: boolean;
+  document: boolean;
+  cv_zonajobs: boolean;
+  cv_bumeran: boolean;
+  phone: boolean;
+  email: boolean;
+  date: boolean;
+  age: boolean;
+  has_university: boolean;
+  career: boolean;
+  graduated: boolean;
+  courses_approved: boolean;
+  location: boolean;
+  accepts_working_hours: boolean;
+  desired_salary: boolean;
+  had_interview: boolean;
+  reason: boolean;
+};

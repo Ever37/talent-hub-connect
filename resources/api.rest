@@ -1,0 +1,71 @@
+@urlhost = http://localhost:3001
+
+### get reject reasons
+GET {{urlhost}}/candidates/reject-reasons HTTP/1.1
+Accept: application/json
+
+### get candidate columns
+GET {{urlhost}}/candidates/columns HTTP/1.1
+Accept: application/json
+
+### get candidates
+GET  {{urlhost}}/candidates HTTP/1.1
+Accept: application/json
+
+### add candidate
+POST {{urlhost}}/candidates HTTP/1.1
+Accept: application/json
+
+{
+  "id": "0123456789",
+  "name": "Ever Blua",
+  "document": 37712035,
+  "cv_zonajobs": "",
+  "cv_bumeran": "",
+  "phone": "(3464) 15698661",
+  "email": "everblua@gmail.com",
+  "date": " 1993-06-07 19:21:27.555000",
+  "age": 30,
+  "has_university": "Si",
+  "career": "Information System Engineer",
+  "graduated": "Si",
+  "courses_approved": "",
+  "location": "Rosario, Santa Fé, Argentina",
+  "accepts_working_hours": "Si",
+  "desired_salary": "10000",
+  "had_interview": "Si",
+  "reason": ""
+}
+
+### get one candidate
+@id_candidate = 5a272e9068adf47eb31fe789
+GET {{urlhost}}/candidates/{{id_candidate}} HTTP/1.1
+Accept: application/json
+
+### update candidate
+@id_candidate = 5a278d4b68adf47eb31fe988
+PUT {{urlhost}}/candidates/{{id_candidate}}
+Accept: application/json
+
+{
+    "document": 44242477888888
+}
+
+### delete one candidate
+@id_candidate = 5a278d4b68adf47eb31fe988
+DELETE {{urlhost}}/candidates/{{id_candidate}} HTTP/1.1
+Accept: application/json
+
+### reject candidate
+@id_candidate = 5a272e9068adf47eb31fe789
+POST {{urlhost}}/candidates/reject/{{id_candidate}}
+Content-Type: application/json
+
+{
+  "reasons": ["No acepta horarios"]
+}
+
+### approve candidate
+@id_candidate = 5a272e9068adf47eb31fe789
+POST {{urlhost}}/candidates/approve/{{id_candidate}} HTTP/1.1
+Accept: application/json
